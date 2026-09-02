@@ -10,23 +10,25 @@ const Navbar = () => {
     const isAdmin = user?.publicMetadata?.role === "admin";
 
     return (
-        <nav className="w-full bg-background/80 backdrop-blur-md border-b border-border/80 sticky top-0 z-50 transition-all duration-300">
+        <nav className="w-full bg-surface/90 backdrop-blur-md border-b border-outline-variant/60 sticky top-0 z-50 transition-all duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16 md:h-[72px]">
                     {/* Logo & Title */}
                     <div className="flex items-center shrink-0">
                         <Link
                             href="/"
-                            className="flex items-center gap-2 group">
-                            <BookOpenIcon className="w-5 h-5 text-primary group-hover:rotate-6 transition-transform" />
-                            <span className="text-sm font-semibold tracking-tight text-textPrimary group-hover:text-primary transition-colors hidden sm:inline">
+                            className="flex items-center gap-2.5 group">
+                            <div className="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/50 group-hover:border-primary/40 group-hover:bg-primary-fixed/30 transition-all">
+                                <BookOpenIcon className="w-5 h-5 text-primary group-hover:scale-105 transition-transform" />
+                            </div>
+                            <span className="font-serif text-base sm:text-lg font-bold tracking-tight text-secondary group-hover:text-primary transition-colors hidden sm:inline">
                                 The Book Heaven
                             </span>
                         </Link>
                     </div>
 
                     {/* Search Bar */}
-                    <div className="flex-1 max-w-md mx-2 sm:mx-4">
+                    <div className="flex-1 max-w-md mx-3 sm:mx-6">
                         <SearchBar />
                     </div>
 
@@ -35,13 +37,13 @@ const Navbar = () => {
                         <Show when="signed-in">
                             <Link 
                                 href="/dashboard" 
-                                className="text-xs sm:text-sm font-medium text-textSecondary hover:text-textPrimary transition-colors">
+                                className="text-xs sm:text-sm font-medium text-secondary/80 hover:text-secondary transition-colors px-2 py-1 rounded-md hover:bg-surface-container">
                                 Dashboard
                             </Link>
                             {isAdmin && (
                                 <Link 
                                     href="/admin" 
-                                    className="text-xs sm:text-sm font-medium text-textSecondary hover:text-textPrimary transition-colors">
+                                    className="text-xs sm:text-sm font-medium text-secondary/80 hover:text-secondary transition-colors px-2 py-1 rounded-md hover:bg-surface-container">
                                     Admin
                                 </Link>
                             )}
@@ -52,12 +54,12 @@ const Navbar = () => {
 
                         <Show when="signed-out">
                             <SignInButton>
-                                <button className="text-textSecondary hover:text-textPrimary transition-colors font-medium text-xs sm:text-sm px-2.5 py-1.5 cursor-pointer">
+                                <button className="text-secondary hover:text-primary transition-colors font-medium text-xs sm:text-sm px-3 py-1.5 cursor-pointer">
                                     Sign In
                                 </button>
                             </SignInButton>
                             <SignUpButton>
-                                <button className="bg-primary hover:bg-amber-700 active:scale-[0.98] text-white rounded-full font-medium text-xs sm:text-sm px-3.5 py-1.5 cursor-pointer transition-all">
+                                <button className="bg-primary hover:bg-[#8e330e] active:scale-[0.98] text-white rounded-md font-semibold text-xs sm:text-sm px-4 py-2 cursor-pointer shadow-xs hover:shadow transition-all">
                                     Sign Up
                                 </button>
                             </SignUpButton>

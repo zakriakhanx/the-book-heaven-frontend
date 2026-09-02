@@ -36,11 +36,11 @@ const Modal = ({ isOpen, onClose, children }) => {
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title">
-            {/* Backdrop with fade-in and premium blur */}
+            {/* Backdrop with fade-in and subtle editorial blur */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="fixed inset-0 bg-black/70 backdrop-blur-md"
+                className="fixed inset-0 bg-secondary/40 backdrop-blur-sm"
                 onClick={onClose}
                 aria-hidden="true"
             />
@@ -50,7 +50,7 @@ const Modal = ({ isOpen, onClose, children }) => {
                 initial={{ opacity: 0, scale: 0.96, y: 16 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 350, damping: 26 }}
-                className="relative z-50 bg-zinc-900 border border-zinc-800 shadow-2xl rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto"
+                className="relative z-50 bg-surface-container-lowest border border-outline-variant/70 shadow-2xl rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto text-on-surface"
                 role="document">
                 {children}
             </motion.div>

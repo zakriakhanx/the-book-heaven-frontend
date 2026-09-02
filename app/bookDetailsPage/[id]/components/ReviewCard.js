@@ -110,22 +110,22 @@ const ReviewCard = ({ review, setReviews }) => {
     return (
         <div
             key={review._id}
-            className="w-full flex justify-between bg-zinc-900/60 border border-zinc-800 p-5 rounded-2xl relative shadow-sm transition-all duration-200 hover:border-zinc-700/60">
+            className="w-full flex justify-between bg-surface-container-lowest border-y border-r border-outline-variant/60 border-l-2 border-l-tertiary/70 p-5 sm:p-6 rounded-r-xl rounded-l-xs relative shadow-xs transition-all duration-200 hover:shadow-sm">
             {!isEditing ? (
                 <>
                     <div className="flex-1 min-w-0 pr-4">
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="text-accent flex items-center">
+                        <div className="flex items-center gap-2.5 mb-2">
+                            <span className="flex items-center">
                                 <StarRating rating={review.rating} />
                             </span>
-                            <span className="text-[10px] text-zinc-500 font-mono">
+                            <span className="text-[11px] text-tertiary font-mono tracking-wider">
                                 &bull; Verified Reader
                             </span>
                         </div>
-                        <h4 className="text-sm font-semibold text-textPrimary truncate">
+                        <h4 className="font-serif text-sm sm:text-base font-bold text-secondary truncate">
                             {review.reviewerName}
                         </h4>
-                        <p className="mt-2 text-textSecondary text-xs sm:text-sm leading-relaxed break-words whitespace-pre-line max-w-[65ch]">
+                        <p className="mt-2 text-on-surface-variant text-xs sm:text-sm leading-relaxed break-words whitespace-pre-line max-w-[65ch]">
                             {review.comment}
                         </p>
                     </div>
@@ -134,18 +134,18 @@ const ReviewCard = ({ review, setReviews }) => {
                         <div className="flex flex-col sm:flex-row gap-2 shrink-0 self-start">
                             {/* Edit Button */}
                             <button
-                                className="p-2 rounded-full bg-zinc-800 text-zinc-400 hover:text-textPrimary hover:bg-zinc-700 transition-all active:scale-[0.93]"
+                                className="p-2 rounded-lg bg-surface-container text-secondary hover:bg-surface-container-high border border-outline-variant/60 transition-all active:scale-[0.93] cursor-pointer"
                                 aria-label="Edit"
                                 onClick={() => setIsEditing(true)}>
-                                <PencilSquareIcon className="w-4 h-4" />
+                                <PencilSquareIcon className="w-4 h-4 text-tertiary" />
                             </button>
 
                             {/* Delete Button */}
                             <button
-                                className="p-2 rounded-full bg-red-950/20 text-red-400 hover:text-red-300 hover:bg-red-900/40 transition-all active:scale-[0.93]"
+                                className="p-2 rounded-lg bg-error-container/20 text-error hover:bg-error-container/40 border border-error/20 transition-all active:scale-[0.93] cursor-pointer"
                                 aria-label="Delete"
                                 onClick={handleDeleteConfirm}>
-                                <TrashIcon className="w-4 h-4" />
+                                <TrashIcon className="w-4 h-4 text-error" />
                             </button>
                         </div>
                     )}
@@ -155,11 +155,11 @@ const ReviewCard = ({ review, setReviews }) => {
                     className="w-full"
                     role="form"
                     aria-label="Edit review">
-                    <h4 className="text-sm font-bold text-textPrimary mb-4">Edit Review</h4>
+                    <h4 className="font-serif text-base font-bold text-secondary mb-4">Edit Review</h4>
 
                     {error && (
                         <div
-                            className="mb-4 p-3 bg-red-500/10 border border-red-500/30 text-red-400 rounded-xl text-sm"
+                            className="mb-4 p-3 bg-error-container/30 border border-error/30 text-error rounded-xl text-sm"
                             role="alert"
                             aria-live="polite">
                             {error}
@@ -169,7 +169,7 @@ const ReviewCard = ({ review, setReviews }) => {
                     <div className="mb-4">
                         <label
                             htmlFor={`rating-${review._id}`}
-                            className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">
+                            className="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-2">
                             Rating
                         </label>
                         <EditableStarRating
@@ -182,14 +182,14 @@ const ReviewCard = ({ review, setReviews }) => {
                     <div className="mb-4">
                         <label
                             htmlFor={`comment-${review._id}`}
-                            className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">
+                            className="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-2">
                             Comment
                         </label>
                         <textarea
                             id={`comment-${review._id}`}
                             value={updatedComment}
                             onChange={(e) => setUpdatedComment(e.target.value)}
-                            className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-xl text-sm text-textPrimary placeholder:text-zinc-500 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-200 resize-none"
+                            className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg text-sm text-on-surface placeholder:text-on-surface-variant/45 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-200 resize-none"
                             rows="4"
                             required
                             aria-required="true"
@@ -200,7 +200,7 @@ const ReviewCard = ({ review, setReviews }) => {
                     <div className="flex gap-3">
                         <button
                             type="button"
-                            className="px-5 py-2.5 rounded-full bg-zinc-800 hover:bg-zinc-750 active:scale-[0.98] text-zinc-350 hover:text-textPrimary font-semibold text-xs transition-all"
+                            className="px-5 py-2.5 rounded-lg border border-outline-variant text-secondary hover:bg-surface-container active:scale-[0.98] font-semibold text-xs transition-all"
                             onClick={() => {
                                 setIsEditing(false);
                                 setError(null);
@@ -209,7 +209,7 @@ const ReviewCard = ({ review, setReviews }) => {
                         </button>
                         <button
                             type="submit"
-                            className="px-5 py-2.5 rounded-full bg-primary hover:bg-amber-700 active:scale-[0.98] text-white font-semibold text-xs shadow-md shadow-primary/10 transition-all"
+                            className="px-5 py-2.5 rounded-lg bg-primary hover:bg-[#8e330e] active:scale-[0.98] text-white font-semibold text-xs shadow-xs transition-all"
                             onClick={handleUpdateReview}
                             disabled={loading}
                             aria-busy={loading}>
@@ -221,22 +221,22 @@ const ReviewCard = ({ review, setReviews }) => {
 
             {/* Delete Confirmation Dialog */}
             {showDeleteConfirm && (
-                <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4">
-                    <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl shadow-2xl max-w-sm w-full mx-4">
-                        <h3 className="text-lg font-bold text-textPrimary tracking-tight mb-2">
+                <div className="fixed inset-0 bg-secondary/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+                    <div className="bg-surface-container-lowest border border-outline-variant/80 p-6 sm:p-8 rounded-2xl shadow-2xl max-w-sm w-full mx-4">
+                        <h3 className="font-serif text-lg font-bold text-on-surface tracking-tight mb-2">
                             Delete Review
                         </h3>
-                        <p className="text-sm text-textSecondary leading-relaxed mb-6">
+                        <p className="text-sm text-on-surface-variant leading-relaxed mb-6">
                             Are you sure you want to delete this review? This action cannot be undone.
                         </p>
                         <div className="flex justify-end gap-3">
                             <button
-                                className="flex-1 py-2 rounded-full bg-zinc-800 hover:bg-zinc-750 active:scale-[0.98] text-zinc-300 font-semibold text-sm transition-all"
+                                className="flex-1 py-2.5 rounded-lg border border-outline-variant text-secondary hover:bg-surface-container active:scale-[0.98] font-semibold text-sm transition-all"
                                 onClick={handleDeleteCancel}>
                                 Cancel
                             </button>
                             <button
-                                className="flex-1 py-2 rounded-full bg-red-700 hover:bg-red-800 active:scale-[0.98] text-white font-semibold text-sm transition-all"
+                                className="flex-1 py-2.5 rounded-lg bg-error hover:bg-[#9a1414] active:scale-[0.98] text-white font-semibold text-sm shadow-xs transition-all"
                                 onClick={() => handleDeleteReview(review._id)}>
                                 Delete
                             </button>

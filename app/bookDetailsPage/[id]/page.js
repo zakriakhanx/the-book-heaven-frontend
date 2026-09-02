@@ -12,12 +12,12 @@ const BookDetailsPage = ({ params }) => {
                 </section>
 
                 {/* Review Section */}
-                <section aria-label="Book Reviews" className="border-t border-border/40 pt-16">
+                <section aria-label="Book Reviews" className="border-t border-outline-variant/60 pt-16">
                     <ReviewSection params={params}/>
                 </section>
 
                 {/* Related Books */}
-                <section aria-label="Related Recommendations" className="border-t border-border/40 pt-16">
+                <section aria-label="Related Recommendations" className="border-t border-outline-variant/60 pt-16">
                     <RelatedBooks params={params}/>
                 </section>
             </div>

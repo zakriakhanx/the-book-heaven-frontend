@@ -49,19 +49,19 @@ const FetchData = ({userName}) => {
 
     return (
         <div className="space-y-6">
-            <div className="flex items-center justify-between border-b border-border/60 pb-3">
-                <h2 className="text-xl font-bold tracking-tight text-textPrimary">
+            <div className="flex items-center justify-between border-b border-outline-variant/60 pb-3">
+                <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-secondary">
                     Recommended Books
                 </h2>
-                <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
-                    {recommendedBooks?.length || 0} titles
+                <span className="text-xs font-mono text-tertiary uppercase tracking-widest">
+                    {recommendedBooks?.length || 0} {recommendedBooks?.length === 1 ? "title" : "titles"}
                 </span>
             </div>
             {recommendedBooks && recommendedBooks.length > 0 ? (
                 <BookGrid bookData={recommendedBooks} />
             ) : (
-                <p className="text-textSecondary text-sm italic py-4">
-                    This user hasn&apos;t recommended any books yet.
+                <p className="text-on-surface-variant text-sm italic py-4">
+                    This member has not recommended any books yet.
                 </p>
             )}
         </div>

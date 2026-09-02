@@ -138,13 +138,13 @@ const ReviewSection = ({ params }) => {
     return (
         <div className="w-full">
             <div className="flex items-center justify-between mb-8">
-                <h2 className="text-xl md:text-2xl font-bold tracking-tight text-textPrimary">Reviews</h2>
-                <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
-                    {reviews.length > 0 ? `${reviews.length} total` : "Empty"}
+                <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-secondary">Discussion & Reviews</h2>
+                <span className="text-xs font-mono text-tertiary uppercase tracking-widest">
+                    {reviews.length > 0 ? `${reviews.length} written` : "Empty"}
                 </span>
             </div>
 
-            <div className="space-y-5 mb-8 relative min-h-[60px]">
+            <div className="space-y-4 mb-8 relative min-h-[60px]">
                 {loading && (
                     <div className="absolute inset-0 bg-background/50 backdrop-blur-xs flex justify-center items-center z-10">
                         <BookLoading size="md" />
@@ -159,8 +159,8 @@ const ReviewSection = ({ params }) => {
                         />
                     ))
                 ) : (
-                    <p className="text-textSecondary text-sm italic py-4">
-                        No reviews yet. Be the first to leave one!
+                    <p className="text-on-surface-variant text-sm italic py-4">
+                        No reviews yet. Be the first to share your literary reflection!
                     </p>
                 )}
             </div>
@@ -176,16 +176,16 @@ const ReviewSection = ({ params }) => {
             )}
 
             {!isApproved && bookStatus !== null && (
-                <div className="p-4 bg-zinc-900/40 border border-zinc-800 rounded-xl">
-                    <p className="text-xs sm:text-sm text-textSecondary text-center">
-                        This book is awaiting approval. Reviews can be added once it is approved.
+                <div className="p-4 bg-surface-container-low border border-outline-variant/60 rounded-xl">
+                    <p className="text-xs sm:text-sm text-on-surface-variant text-center">
+                        This book is awaiting moderation approval. Reviews can be added once it is approved.
                     </p>
                 </div>
             )}
 
             {isApproved && !isAuthenticated && (
-                <div className="p-4 bg-zinc-900/40 border border-zinc-800 rounded-xl">
-                    <p className="text-xs sm:text-sm text-textSecondary text-center">
+                <div className="p-4 bg-surface-container-low border border-outline-variant/60 rounded-xl">
+                    <p className="text-xs sm:text-sm text-on-surface-variant text-center">
                         Please log in to leave a review.
                     </p>
                 </div>
@@ -194,13 +194,13 @@ const ReviewSection = ({ params }) => {
             {isApproved && isAuthenticated && (
                 <form
                     onSubmit={handleReviewSubmit}
-                    className="flex flex-col gap-5 border border-zinc-850 p-6 sm:p-8 rounded-2xl bg-zinc-900/40 backdrop-blur-xs"
+                    className="flex flex-col gap-5 border border-outline-variant/70 p-6 sm:p-8 rounded-2xl bg-surface-container-low/70 backdrop-blur-xs shadow-xs"
                     aria-label="Review submission form">
-                    <h3 className="text-base font-bold text-textPrimary">Write a Review</h3>
+                    <h3 className="font-serif text-lg font-bold text-secondary">Write a Review</h3>
 
                     {error && (
                         <div
-                            className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-xl text-sm"
+                            className="bg-error-container/30 border border-error/30 text-error px-4 py-3 rounded-xl text-sm"
                             role="alert"
                             aria-live="polite">
                             <span>{error}</span>
@@ -210,7 +210,7 @@ const ReviewSection = ({ params }) => {
                     <div>
                         <label
                             htmlFor="rating"
-                            className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">
+                            className="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-2">
                             Rating
                         </label>
                         <EditableStarRating
@@ -224,7 +224,7 @@ const ReviewSection = ({ params }) => {
                     <div className="flex flex-col">
                         <label
                             htmlFor="comment"
-                            className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">
+                            className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-2">
                             Review Comment
                         </label>
                         <textarea
@@ -232,7 +232,7 @@ const ReviewSection = ({ params }) => {
                             placeholder="Write your review and share your thoughts..."
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
-                            className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-xl text-sm text-textPrimary placeholder:text-zinc-600 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-200 resize-none"
+                            className="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg text-sm text-on-surface placeholder:text-on-surface-variant/45 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 shadow-xs transition-all duration-200 resize-none"
                             rows="4"
                             required
                             aria-label="Review comment"
@@ -243,7 +243,7 @@ const ReviewSection = ({ params }) => {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="self-start inline-flex items-center justify-center bg-primary hover:bg-amber-700 active:scale-[0.98] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-150 text-sm shadow-md shadow-primary/10 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="self-start inline-flex items-center justify-center bg-primary hover:bg-[#8e330e] active:scale-[0.98] text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-150 text-sm shadow-xs cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                         aria-busy={loading}>
                         {loading ? "Submitting..." : "Submit Review"}
                     </button>

@@ -10,12 +10,14 @@ import axios from "axios";
 import Link from "next/link";
 import BookForm from "@/app/components/BookForm";
 
+// Scholarly editorial cover palettes for physical book mockups
 const COVER_PALETTES = [
-    { from: "from-zinc-900", to: "to-zinc-950", border: "border-zinc-800/80", accent: "text-[#c4a484]" }, // Charcoal
-    { from: "from-rose-950", to: "to-stone-950", border: "border-rose-900/40", accent: "text-[#e8c4b4]" },  // Burgundy
-    { from: "from-teal-950", to: "to-slate-950", border: "border-teal-900/40", accent: "text-[#a4e8d5]" },   // Teal
-    { from: "from-amber-950", to: "to-zinc-950", border: "border-amber-900/40", accent: "text-[#e8d5c4]" },  // Bronze
-    { from: "from-blue-950", to: "to-zinc-950", border: "border-blue-900/40", accent: "text-[#b4d5e8]" },    // Indigo
+    { from: "from-[#1a2a3a]", to: "to-[#0e1720]", border: "border-[#2c4258]/60", accent: "text-[#d3e4fa]", titleColor: "text-[#fbf9f5]" }, // Library Navy
+    { from: "from-[#8f330e]", to: "to-[#591e06]", border: "border-[#b8481b]/60", accent: "text-[#ffdbcf]", titleColor: "text-[#fbf9f5]" }, // Terracotta
+    { from: "from-[#1d3c34]", to: "to-[#0f231e]", border: "border-[#2d5c50]/60", accent: "text-[#c2ebd9]", titleColor: "text-[#fbf9f5]" }, // Scholar Pine
+    { from: "from-[#5a1827]", to: "to-[#380e18]", border: "border-[#7d293b]/60", accent: "text-[#fcd2db]", titleColor: "text-[#fbf9f5]" }, // Vintage Burgundy
+    { from: "from-[#253f56]", to: "to-[#142433]", border: "border-[#3e5f7e]/60", accent: "text-[#cce5ff]", titleColor: "text-[#fbf9f5]" }, // Ink Blue
+    { from: "from-[#54412c]", to: "to-[#332617]", border: "border-[#7a6245]/60", accent: "text-[#ffe8ba]", titleColor: "text-[#fbf9f5]" }, // Warm Ochre
 ];
 
 export const BookDetails = ({ params }) => {
@@ -161,48 +163,52 @@ export const BookDetails = ({ params }) => {
     const palette = COVER_PALETTES[paletteIndex];
 
     return (
-        <div className="w-full flex flex-col md:flex-row gap-8 md:gap-12 text-textPrimary">
-            {/* Left Column: Physical Mock Cover */}
-            <div className="w-full md:w-64 flex shrink-0 justify-center md:justify-start">
-                <div className={`relative aspect-[3/4.2] w-52 sm:w-64 rounded-xl border ${palette.border} bg-gradient-to-br ${palette.from} ${palette.to} shadow-2xl p-6 overflow-hidden flex flex-col justify-between`}>
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'6\' height=\'6\' viewBox=\'0 0 6 6\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.02\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M5 0h1L0 6V5zM6 5v1H5z\'/%3E%3C/g%3E%3C/svg%3E')] pointer-events-none" />
-                    <div className="absolute left-0 top-0 w-3 h-full bg-gradient-to-r from-black/60 via-black/20 to-transparent rounded-l-xl" />
-                    <div className="absolute inset-[12px] border border-white/5 opacity-55 rounded pointer-events-none" />
-                    <div className="w-full mt-6 text-center">
-                        <h3 className="text-[#e8d5c4] text-sm sm:text-base font-semibold leading-relaxed line-clamp-5 px-2 select-none">
-                            {book.title}
-                        </h3>
-                    </div>
-                    <div className={`w-full text-center text-[10px] sm:text-xs uppercase tracking-widest pt-2 border-t border-white/5 ${palette.accent}`}>
-                        {book.genre}
+        <div className="w-full flex flex-col md:flex-row gap-8 md:gap-12 text-on-surface">
+            {/* Left Column: Physical Mock Cover Container */}
+            <div className="w-full md:w-72 flex shrink-0 justify-center md:justify-start">
+                <div className="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/70 shadow-[0_8px_24px_-6px_rgba(27,28,26,0.08)] w-full max-w-[280px]">
+                    <div className={`relative aspect-[3/4.4] w-full rounded-[4px] border ${palette.border} bg-gradient-to-br ${palette.from} ${palette.to} shadow-md p-6 overflow-hidden flex flex-col justify-between`}>
+                        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'6\' height=\'6\' viewBox=\'0 0 6 6\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M5 0h1L0 6V5zM6 5v1H5z\'/%3E%3C/g%3E%3C/svg%3E')] pointer-events-none" />
+                        <div className="absolute left-0 top-0 w-3.5 h-full bg-gradient-to-r from-black/40 via-black/15 to-transparent rounded-l-[4px]" />
+                        <div className="absolute left-[3px] top-[4%] bottom-[4%] w-[1px] bg-white/15" />
+                        <div className="absolute inset-[10px] border border-white/10 opacity-70 rounded-[2px] pointer-events-none" />
+                        
+                        <div className="w-full mt-4 text-center">
+                            <h3 className={`font-serif ${palette.titleColor} text-base sm:text-lg font-bold leading-relaxed line-clamp-5 px-1 select-none`}>
+                                {book.title}
+                            </h3>
+                        </div>
+                        <div className={`w-full text-center text-[10px] sm:text-xs uppercase tracking-widest font-mono pt-2 border-t border-white/10 ${palette.accent}`}>
+                            {book.genre}
+                        </div>
                     </div>
                 </div>
             </div>
 
             {/* Right Column: Book Details Info */}
             <div className="flex-1 flex flex-col">
-                <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <span className="px-2.5 py-1 text-[10px] font-semibold tracking-wider uppercase bg-zinc-900 border border-zinc-800 text-primary rounded-full">
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                    <span className="px-3 py-1 text-[11px] font-mono font-semibold tracking-wider uppercase bg-surface-container border border-outline-variant text-primary rounded-full shadow-2xs">
                         {book.genre}
                     </span>
                     {book.status && book.status !== "allowed" && (
-                        <span className={`px-2.5 py-1 text-[10px] font-semibold tracking-wider uppercase rounded-full ${
-                            book.status === "pending" ? "bg-amber-500/25 border border-amber-500/40 text-amber-400" : "bg-red-500/25 border border-red-500/40 text-red-400"
+                        <span className={`px-3 py-1 text-[11px] font-mono font-semibold tracking-wider uppercase rounded-full ${
+                            book.status === "pending" ? "bg-amber-100 border border-amber-300 text-amber-900" : "bg-red-100 border border-red-300 text-red-900"
                         }`}>
                             {book.status}
                         </span>
                     )}
                 </div>
 
-                <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-textPrimary leading-tight mb-4">
+                <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-secondary leading-tight mb-4">
                     {book.title}
                 </h1>
 
-                <div className="flex flex-col gap-1 mb-6 text-sm text-textSecondary border-b border-border/40 pb-6">
-                    <p>
-                        Written by <span className="text-textPrimary font-semibold">{book.author}</span>
+                <div className="flex flex-col gap-1 mb-6 text-sm text-on-surface-variant border-b border-outline-variant/60 pb-6">
+                    <p className="text-sm sm:text-base">
+                        Written by <span className="text-on-surface font-semibold">{book.author}</span>
                     </p>
-                    <p className="text-xs">
+                    <p className="text-xs sm:text-sm">
                         Recommended by{" "}
                         <Link
                             href={`/user/${book.userName}`}
@@ -212,16 +218,17 @@ export const BookDetails = ({ params }) => {
                     </p>
                 </div>
 
-                <div className="mb-8 max-w-[65ch]">
-                    <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Description</h3>
-                    <p className="text-textSecondary text-sm sm:text-base leading-relaxed whitespace-pre-line">
+                {/* Content Focus: Reading constrained to 720px max */}
+                <div className="mb-8 max-w-[720px]">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-secondary/70 mb-2">Description</h3>
+                    <p className="text-on-surface-variant text-base sm:text-lg leading-[1.65] whitespace-pre-line">
                         {book.description}
                     </p>
                 </div>
 
                 {error && (
                     <div
-                        className="mb-6 p-3.5 bg-red-500/10 border border-red-500/35 text-red-400 rounded-xl text-sm"
+                        className="mb-6 p-3.5 bg-error-container/40 border border-error/30 text-error rounded-xl text-sm"
                         role="alert"
                         aria-live="polite">
                         {error}
@@ -233,15 +240,15 @@ export const BookDetails = ({ params }) => {
                     {isAuthenticated && (
                         <button
                             onClick={handleToggleFavorite}
-                            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all duration-150 active:scale-[0.98] text-sm cursor-pointer ${
+                            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold transition-all duration-150 active:scale-[0.98] text-sm cursor-pointer shadow-xs ${
                                 isFavorite 
-                                    ? "bg-red-700 hover:bg-red-800 text-white shadow-md shadow-red-950/20" 
-                                    : "bg-zinc-800 text-zinc-300 border border-zinc-700 hover:bg-zinc-750 hover:text-white"
+                                    ? "bg-primary hover:bg-[#8e330e] text-white" 
+                                    : "bg-surface-container-lowest text-secondary border border-outline hover:bg-surface-container"
                             } ${loading ? "cursor-wait opacity-50" : ""}`}
                             aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
                             aria-pressed={isFavorite}>
-                            <HeartIcon className={`w-4 h-4 ${isFavorite ? "fill-white" : "fill-zinc-400"}`} />
-                            <span>{isFavorite ? "Favorited" : "Favorite"}</span>
+                            <HeartIcon className={`w-4 h-4 ${isFavorite ? "fill-white" : "fill-secondary/60"}`} />
+                            <span>{isFavorite ? "In Favorites" : "Add to Favorites"}</span>
                         </button>
                     )}
 
@@ -249,15 +256,15 @@ export const BookDetails = ({ params }) => {
                         <div className="flex gap-3">
                             <button
                                 onClick={() => setIsEditing(true)}
-                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium bg-zinc-850 hover:bg-zinc-800 text-zinc-350 hover:text-textPrimary border border-zinc-800/80 transition-all duration-150 active:scale-[0.98] text-sm cursor-pointer">
-                                <PencilSquareIcon className="w-4 h-4 text-zinc-400" />
+                                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold bg-surface-container-lowest hover:bg-surface-container text-secondary border border-outline transition-all duration-150 active:scale-[0.98] text-sm cursor-pointer shadow-xs">
+                                <PencilSquareIcon className="w-4 h-4 text-tertiary" />
                                 <span>Edit</span>
                             </button>
 
                             <button
                                 onClick={handleDeleteConfirm}
-                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium bg-red-950/20 text-red-400 border border-red-900/30 hover:bg-red-900/40 hover:text-red-300 transition-all duration-150 active:scale-[0.98] text-sm cursor-pointer">
-                                <TrashIcon className="w-4 h-4 text-red-400" />
+                                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold bg-error-container/25 text-error border border-error/30 hover:bg-error-container/50 transition-all duration-150 active:scale-[0.98] text-sm cursor-pointer">
+                                <TrashIcon className="w-4 h-4 text-error" />
                                 <span>Delete</span>
                             </button>
                         </div>
@@ -274,22 +281,22 @@ export const BookDetails = ({ params }) => {
 
             {/* Delete Confirmation Dialog */}
             {showDeleteConfirm && (
-                <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4">
-                    <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl shadow-2xl max-w-sm w-full mx-4">
-                        <h3 className="text-lg font-bold text-textPrimary tracking-tight mb-2">
+                <div className="fixed inset-0 bg-secondary/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+                    <div className="bg-surface-container-lowest border border-outline-variant/80 p-6 sm:p-8 rounded-2xl shadow-2xl max-w-sm w-full mx-4">
+                        <h3 className="font-serif text-lg font-bold text-on-surface tracking-tight mb-2">
                             Delete Book
                         </h3>
-                        <p className="text-sm text-textSecondary leading-relaxed mb-6">
+                        <p className="text-sm text-on-surface-variant leading-relaxed mb-6">
                             Are you sure you want to delete this recommendation? This action is permanent and cannot be undone.
                         </p>
                         <div className="flex justify-end gap-3">
                             <button
-                                className="flex-1 py-2 rounded-full bg-zinc-800 hover:bg-zinc-750 active:scale-[0.98] text-zinc-300 font-semibold text-sm transition-all"
+                                className="flex-1 py-2.5 rounded-lg border border-outline-variant text-secondary hover:bg-surface-container active:scale-[0.98] font-semibold text-sm transition-all"
                                 onClick={handleDeleteCancel}>
                                 Cancel
                             </button>
                             <button
-                                className="flex-1 py-2 rounded-full bg-red-700 hover:bg-red-800 active:scale-[0.98] text-white font-semibold text-sm transition-all"
+                                className="flex-1 py-2.5 rounded-lg bg-error hover:bg-[#9a1414] active:scale-[0.98] text-white font-semibold text-sm shadow-xs transition-all"
                                 onClick={handleDelete}>
                                 Delete
                             </button>

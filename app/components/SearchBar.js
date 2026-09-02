@@ -145,14 +145,14 @@ const SearchBar = () => {
                 {/* Search input container */}
                 <div className="relative flex items-center w-full">
                     {/* Search icon */}
-                    <MagnifyingGlassIcon className="absolute left-3.5 h-4 w-4 text-zinc-400 pointer-events-none" />
+                    <MagnifyingGlassIcon className="absolute left-3.5 h-4 w-4 text-tertiary/70 pointer-events-none" />
 
                     {/* Search input */}
                     <input
                         ref={inputRef}
-                        className="bg-zinc-900/60 backdrop-blur border border-zinc-800/80 text-textPrimary text-xs sm:text-sm h-9 sm:h-10 rounded-full 
-                                 pl-10 pr-10 w-full placeholder:text-zinc-500 focus:outline-none focus:ring-4 
-                                 focus:ring-primary/20 focus:border-primary focus:bg-zinc-900/90 transition-all duration-200"
+                        className="bg-surface-container-lowest border border-outline-variant/80 text-on-surface text-xs sm:text-sm h-9 sm:h-10 rounded-lg 
+                                 pl-10 pr-10 w-full placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-4 
+                                 focus:ring-primary/15 focus:border-primary shadow-xs transition-all duration-200"
                         type="text"
                         value={inputValue}
                         onChange={handleChange}
@@ -171,7 +171,7 @@ const SearchBar = () => {
                     {inputValue && (
                         <button
                             onClick={handleClear}
-                            className="absolute right-3.5 text-zinc-400 hover:text-textPrimary transition-colors"
+                            className="absolute right-3.5 text-on-surface-variant/60 hover:text-on-surface transition-colors"
                             aria-label="Clear search">
                             <XMarkIcon className="h-4 w-4" />
                         </button>
@@ -183,10 +183,10 @@ const SearchBar = () => {
                     <div
                         id="search-results"
                         role="listbox"
-                        className="absolute top-full mt-2 w-full bg-zinc-900/95 backdrop-blur-xl border 
-                                 border-zinc-800 shadow-2xl rounded-xl z-50 max-h-[60vh] overflow-y-auto py-1.5 divide-y divide-zinc-800/40">
+                        className="absolute top-full mt-2 w-full bg-surface-container-lowest border 
+                                 border-outline-variant/80 shadow-xl rounded-xl z-50 max-h-[60vh] overflow-y-auto py-1.5 divide-y divide-surface-container">
                         {isSearching ? (
-                            <div className="p-4 text-zinc-400 text-xs sm:text-sm text-center animate-pulse">
+                            <div className="p-4 text-on-surface-variant text-xs sm:text-sm text-center animate-pulse">
                                 Searching library...
                             </div>
                         ) : matchingBooks.length > 0 ? (
@@ -201,20 +201,20 @@ const SearchBar = () => {
                                         id={`result-${index}`}
                                         aria-selected={selectedIndex === index}
                                         className={`flex flex-col gap-0.5 p-3.5 cursor-pointer transition-all duration-150
-                                                  ${selectedIndex === index ? "bg-zinc-800 text-textPrimary" : "bg-transparent text-textSecondary hover:bg-zinc-800/50 hover:text-textPrimary"}`}>
-                                        <span className="text-textPrimary font-semibold text-xs sm:text-sm">
+                                                  ${selectedIndex === index ? "bg-surface-container-high text-on-surface" : "bg-transparent text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface"}`}>
+                                        <span className="font-serif font-semibold text-xs sm:text-sm text-on-surface">
                                             {book.title}
                                         </span>
-                                        <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-zinc-400">
+                                        <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-on-surface-variant/80">
                                             <span className="font-medium text-primary">{book.author}</span>
                                             <span>&middot;</span>
-                                            <span className="italic">{book.genre}</span>
+                                            <span className="italic text-tertiary">{book.genre}</span>
                                         </div>
                                     </div>
                                 </Link>
                             ))
                         ) : (
-                            <div className="p-4 text-zinc-400 text-xs sm:text-sm text-center">
+                            <div className="p-4 text-on-surface-variant text-xs sm:text-sm text-center">
                                 {inputValue.length >= SEARCH_CONFIG.MIN_LENGTH
                                     ? "No matches found in heaven"
                                     : `Type at least ${SEARCH_CONFIG.MIN_LENGTH} characters`}

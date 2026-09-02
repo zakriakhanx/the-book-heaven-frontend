@@ -52,21 +52,21 @@ class ErrorBoundary extends React.Component {
                 <div
                     className="min-h-screen flex items-center justify-center bg-background px-4 py-12"
                     role="alert">
-                    <div className="bg-zinc-900 border border-zinc-800 p-8 sm:p-10 rounded-2xl shadow-2xl max-w-md w-full text-center flex flex-col items-center">
-                        {/* Elegant Error Icon */}
-                        <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 mb-5">
+                    <div className="bg-surface-container-lowest border border-outline-variant/80 p-8 sm:p-10 rounded-2xl shadow-xl max-w-md w-full text-center flex flex-col items-center">
+                        {/* Error Icon */}
+                        <div className="w-12 h-12 rounded-full bg-error-container/40 flex items-center justify-center text-error mb-5">
                             <ExclamationTriangleIcon className="w-6 h-6" />
                         </div>
 
-                        <h2 className="text-xl font-bold text-textPrimary tracking-tight mb-2">
+                        <h2 className="font-serif text-xl sm:text-2xl font-bold text-on-surface tracking-tight mb-2">
                             Something went wrong
                         </h2>
                         
-                        <p className="text-xs text-zinc-500 font-mono uppercase tracking-widest mb-4">
+                        <p className="text-xs text-on-surface-variant/70 font-mono uppercase tracking-widest mb-4">
                             System Error
                         </p>
 
-                        <div className="w-full text-left bg-zinc-950 border border-zinc-800/80 p-4 rounded-xl text-xs text-textSecondary font-mono leading-relaxed mb-6 max-h-[120px] overflow-y-auto break-all">
+                        <div className="w-full text-left bg-surface-container-low border border-outline-variant/60 p-4 rounded-xl text-xs text-on-surface-variant font-mono leading-relaxed mb-6 max-h-[120px] overflow-y-auto break-all">
                             {this.state.error?.message || "An unexpected error occurred"}
                         </div>
 
@@ -76,7 +76,7 @@ class ErrorBoundary extends React.Component {
                                 this.setState({ hasError: false, error: null });
                                 window.location.reload();
                             }}
-                            className="w-full py-2.5 rounded-full bg-primary hover:bg-amber-700 active:scale-[0.98] text-white font-semibold text-sm transition-all"
+                            className="w-full py-2.5 rounded-lg bg-primary hover:bg-[#8e330e] active:scale-[0.98] text-white font-semibold text-sm shadow-xs transition-all"
                             aria-label="Retry loading the application">
                             Try again
                         </button>

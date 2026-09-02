@@ -55,18 +55,18 @@ const FetchData = ({userName}) => {
         <div className="space-y-12">
             {/* Favorites Section */}
             <div className="space-y-6">
-                <div className="flex items-center justify-between border-b border-border/60 pb-3">
-                    <h2 className="text-xl font-bold tracking-tight text-textPrimary">
+                <div className="flex items-center justify-between border-b border-outline-variant/60 pb-3">
+                    <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-secondary">
                         Favorite Books
                     </h2>
-                    <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
-                        {favoriteBooks.length} titles
+                    <span className="text-xs font-mono text-tertiary uppercase tracking-widest">
+                        {favoriteBooks.length} {favoriteBooks.length === 1 ? "title" : "titles"}
                     </span>
                 </div>
                 {favoriteBooks.length > 0 ? (
                     <BookGrid bookData={favoriteBooks} />
                 ) : (
-                    <p className="text-textSecondary text-sm italic py-4">
+                    <p className="text-on-surface-variant text-sm italic py-4">
                         No favorite books added yet.
                     </p>
                 )}
@@ -74,18 +74,18 @@ const FetchData = ({userName}) => {
 
             {/* Recommendations Section */}
             <div className="space-y-6">
-                <div className="flex items-center justify-between border-b border-border/60 pb-3">
-                    <h2 className="text-xl font-bold tracking-tight text-textPrimary">
+                <div className="flex items-center justify-between border-b border-outline-variant/60 pb-3">
+                    <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-secondary">
                         Recommended Books
                     </h2>
-                    <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
-                        {recommendedBooks.length} titles
+                    <span className="text-xs font-mono text-tertiary uppercase tracking-widest">
+                        {recommendedBooks.length} {recommendedBooks.length === 1 ? "title" : "titles"}
                     </span>
                 </div>
                 {recommendedBooks.length > 0 ? (
                     <BookGrid bookData={recommendedBooks} />
                 ) : (
-                    <p className="text-textSecondary text-sm italic py-4">
+                    <p className="text-on-surface-variant text-sm italic py-4">
                         No books recommended yet.
                     </p>
                 )}

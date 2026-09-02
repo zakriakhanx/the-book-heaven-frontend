@@ -126,7 +126,7 @@ const BookForm = ({
             {!existingBook && (
                 <div className="flex justify-center items-center">
                     <button
-                        className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-amber-700 active:scale-[0.98] text-white px-8 py-3.5 rounded-full font-semibold shadow-lg shadow-primary/20 transition-all cursor-pointer text-sm sm:text-base"
+                        className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-[#8e330e] active:scale-[0.98] text-white px-7 py-3.5 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all cursor-pointer text-sm sm:text-base"
                         onClick={() => setIsOpen(true)}>
                         <PlusIcon className="w-4 h-4 sm:w-5 h-5 text-white" />
                         Recommend a Book
@@ -136,13 +136,13 @@ const BookForm = ({
 
             <Modal isOpen={isOpen} onClose={handleClose}>
                 <form onSubmit={handleFormSubmit} className="flex flex-col p-6 sm:p-8">
-                    <h2 className="text-xl font-bold text-textPrimary tracking-tight mb-6">
+                    <h2 className="font-serif text-xl sm:text-2xl font-bold text-on-surface tracking-tight mb-6">
                         {existingBook ? "Edit Recommendation" : "Recommend a Book"}
                     </h2>
                     
                     {/* Title */}
                     <div className="flex flex-col mb-4">
-                        <label className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">
+                        <label className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">
                             Book Title
                         </label>
                         <input
@@ -151,14 +151,14 @@ const BookForm = ({
                             value={bookData.title}
                             onChange={handleInputChange}
                             placeholder="e.g. The Great Gatsby"
-                            className="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-sm text-textPrimary placeholder:text-zinc-600 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-200"
+                            className="w-full px-4 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-sm text-on-surface placeholder:text-on-surface-variant/45 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 shadow-xs transition-all duration-200"
                             required
                         />
                     </div>
 
                     {/* Author */}
                     <div className="flex flex-col mb-4">
-                        <label className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">
+                        <label className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">
                             Author
                         </label>
                         <input
@@ -167,14 +167,14 @@ const BookForm = ({
                             value={bookData.author}
                             onChange={handleInputChange}
                             placeholder="e.g. F. Scott Fitzgerald"
-                            className="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-sm text-textPrimary placeholder:text-zinc-600 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-200"
+                            className="w-full px-4 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-sm text-on-surface placeholder:text-on-surface-variant/45 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 shadow-xs transition-all duration-200"
                             required
                         />
                     </div>
 
                     {/* Genre */}
                     <div className="flex flex-col mb-4">
-                        <label className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">
+                        <label className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">
                             Genre
                         </label>
                         <input
@@ -183,14 +183,14 @@ const BookForm = ({
                             value={bookData.genre}
                             onChange={handleInputChange}
                             placeholder="e.g. Fiction, Classics"
-                            className="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-sm text-textPrimary placeholder:text-zinc-600 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-200"
+                            className="w-full px-4 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-sm text-on-surface placeholder:text-on-surface-variant/45 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 shadow-xs transition-all duration-200"
                             required
                         />
                     </div>
 
                     {/* Description */}
                     <div className="flex flex-col mb-6">
-                        <label className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">
+                        <label className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">
                             Why do you recommend it?
                         </label>
                         <textarea
@@ -199,7 +199,7 @@ const BookForm = ({
                             onChange={handleInputChange}
                             placeholder="Share your thoughts about this masterpiece..."
                             rows="4"
-                            className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-xl text-sm text-textPrimary placeholder:text-zinc-600 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-200 resize-none"
+                            className="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg text-sm text-on-surface placeholder:text-on-surface-variant/45 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 shadow-xs transition-all duration-200 resize-none"
                             required
                         />
                     </div>
@@ -208,12 +208,12 @@ const BookForm = ({
                         <button
                             type="button"
                             onClick={handleClose}
-                            className="flex-1 py-2.5 rounded-full bg-zinc-800 hover:bg-zinc-750 active:scale-[0.98] text-zinc-300 hover:text-textPrimary font-semibold text-sm transition-all duration-150">
+                            className="flex-1 py-2.5 rounded-lg border border-outline-variant text-secondary hover:bg-surface-container active:scale-[0.98] font-semibold text-sm transition-all duration-150">
                             Cancel
                         </button>
                         <button
                             type="submit"
-                            className="flex-1 py-2.5 rounded-full bg-primary hover:bg-amber-700 active:scale-[0.98] text-white font-semibold text-sm shadow-md shadow-primary/10 transition-all duration-150">
+                            className="flex-1 py-2.5 rounded-lg bg-primary hover:bg-[#8e330e] active:scale-[0.98] text-white font-semibold text-sm shadow-xs transition-all duration-150">
                             {existingBook ? "Save Changes" : "Submit"}
                         </button>
                     </div>

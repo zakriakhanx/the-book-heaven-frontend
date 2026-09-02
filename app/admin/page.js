@@ -17,12 +17,12 @@ const AdminPage = async () => {
                 aria-label="Admin dashboard">
                 
                 {/* Admin Header */}
-                <div className="border-b border-border/80 pb-6 flex items-center justify-between">
+                <div className="border-b border-outline-variant/60 pb-6 flex items-center justify-between">
                     <div>
-                        <h1 className="text-3xl font-bold text-textPrimary tracking-tight">
+                        <h1 className="font-serif text-3xl sm:text-4xl font-bold text-secondary tracking-tight">
                             Admin Control Panel
                         </h1>
-                        <p className="text-xs text-textSecondary mt-1 uppercase tracking-widest font-mono">
+                        <p className="text-xs text-tertiary mt-1 uppercase tracking-widest font-mono">
                             System Overview & Book Moderation
                         </p>
                     </div>

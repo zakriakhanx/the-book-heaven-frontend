@@ -38,28 +38,28 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
             <button
                 onClick={() => onPageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-zinc-900/60 border border-zinc-800/80 text-zinc-300
-                           hover:bg-zinc-850 hover:text-textPrimary disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-zinc-900/60 disabled:hover:text-zinc-300 transition-all duration-155 active:scale-[0.97]"
+                className="px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider bg-surface-container-lowest border border-outline-variant text-secondary
+                           hover:bg-surface-container hover:text-on-surface disabled:opacity-35 disabled:cursor-not-allowed disabled:hover:bg-surface-container-lowest disabled:hover:text-secondary shadow-2xs transition-all duration-150 active:scale-[0.97]"
                 aria-label="Previous page">
                 Prev
             </button>
 
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
                 {getPageNumbers().map((page, index) =>
                     page === "..." ? (
                         <span
                             key={`ellipsis-${index}`}
-                            className="px-3 py-2 text-zinc-500 font-mono text-xs select-none">
+                            className="px-2 py-1.5 text-on-surface-variant/50 font-mono text-xs select-none">
                             &bull;&bull;&bull;
                         </span>
                     ) : (
                         <button
                             key={page}
                             onClick={() => onPageChange(page)}
-                            className={`w-9 h-9 rounded-full text-xs font-mono transition-all duration-155 flex items-center justify-center active:scale-[0.95] ${
+                            className={`w-9 h-9 rounded-lg text-xs font-mono transition-all duration-150 flex items-center justify-center active:scale-[0.95] ${
                                 currentPage === page
-                                    ? "bg-primary text-white border border-primary/20 shadow-md shadow-primary/10"
-                                    : "bg-zinc-900/40 border border-zinc-800/60 text-zinc-400 hover:bg-zinc-800/60 hover:text-textPrimary"
+                                    ? "bg-primary text-white border border-primary shadow-xs font-semibold"
+                                    : "bg-surface-container-lowest border border-outline-variant/80 text-on-surface-variant hover:bg-surface-container hover:text-on-surface shadow-2xs"
                             }`}
                             aria-label={`Go to page ${page}`}
                             aria-current={currentPage === page ? "page" : undefined}>
@@ -72,8 +72,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
             <button
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-zinc-900/60 border border-zinc-800/80 text-zinc-300
-                           hover:bg-zinc-850 hover:text-textPrimary disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-zinc-900/60 disabled:hover:text-zinc-300 transition-all duration-155 active:scale-[0.97]"
+                className="px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider bg-surface-container-lowest border border-outline-variant text-secondary
+                           hover:bg-surface-container hover:text-on-surface disabled:opacity-35 disabled:cursor-not-allowed disabled:hover:bg-surface-container-lowest disabled:hover:text-secondary shadow-2xs transition-all duration-150 active:scale-[0.97]"
                 aria-label="Next page">
                 Next
             </button>

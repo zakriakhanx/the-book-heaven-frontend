@@ -49,9 +49,9 @@ const EditableStarRating = ({ rating, onRatingChange, id }) => {
                         onClick={() => handleClick(starNumber)}
                         className="transition-all duration-150 transform hover:scale-115 focus:outline-none focus:ring-4 focus:ring-primary/20 rounded-md p-0.5">
                         {isFilled ? (
-                            <SolidStar className="w-6 h-6 fill-amber-500" />
+                            <SolidStar className="w-6 h-6 fill-[#d97706]" />
                         ) : (
-                            <OutlineStar className="w-6 h-6 text-zinc-600" />
+                            <OutlineStar className="w-6 h-6 text-outline-variant hover:text-outline" />
                         )}
                     </button>
                 );

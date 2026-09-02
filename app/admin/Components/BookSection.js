@@ -76,17 +76,17 @@ const BookSection = ({ title, status, actions = [] }) => {
     return (
         <div className="mb-8">
             <div
-                className="bg-zinc-900/60 border border-zinc-800/80 p-6 sm:p-8 rounded-2xl shadow-sm backdrop-blur-sm"
+                className="bg-surface-container-low/70 border border-outline-variant/70 p-6 sm:p-8 rounded-2xl shadow-xs backdrop-blur-xs"
                 role="region"
                 aria-label={title}>
                 
                 {/* Section Header */}
-                <div className="flex items-center justify-between pb-4 mb-6 border-b border-zinc-800/40">
-                    <h2 className="text-lg md:text-xl font-bold tracking-tight text-textPrimary">
+                <div className="flex items-center justify-between pb-4 mb-6 border-b border-outline-variant/60">
+                    <h2 className="font-serif text-lg md:text-xl font-bold tracking-tight text-secondary">
                         {title}
                     </h2>
-                    <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
-                        {totalItems} books
+                    <span className="text-xs font-mono text-tertiary uppercase tracking-widest">
+                        {totalItems} {totalItems === 1 ? "book" : "books"}
                     </span>
                 </div>
 
@@ -100,17 +100,17 @@ const BookSection = ({ title, status, actions = [] }) => {
                             {books.map((book) => (
                                 <div
                                     key={book._id}
-                                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-zinc-800/60 rounded-xl p-5 bg-zinc-950/40 hover:border-zinc-700/65 transition-all duration-150">
+                                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-outline-variant/60 rounded-xl p-5 bg-surface-container-lowest hover:border-outline-variant transition-all duration-150 shadow-2xs">
                                     <div className="min-w-0">
-                                        <h3 className="text-base sm:text-lg font-bold text-textPrimary tracking-tight break-words mb-1">
+                                        <h3 className="font-serif text-base sm:text-lg font-bold text-secondary tracking-tight break-words mb-1">
                                             {book.title}
                                         </h3>
-                                        <div className="flex flex-wrap items-center gap-1.5 text-xs sm:text-sm text-textSecondary">
-                                            <span>by <span className="text-textPrimary font-medium">{book.author}</span></span>
+                                        <div className="flex flex-wrap items-center gap-1.5 text-xs sm:text-sm text-on-surface-variant">
+                                            <span>by <span className="text-on-surface font-semibold">{book.author}</span></span>
                                             <span>&middot;</span>
                                             <span className="italic text-primary">{book.genre}</span>
                                         </div>
-                                        <p className="text-[10px] sm:text-xs text-zinc-500 mt-2 font-mono uppercase tracking-wider">
+                                        <p className="text-[10px] sm:text-xs text-tertiary mt-2 font-mono uppercase tracking-wider">
                                             Rec: {book.userName}
                                         </p>
                                     </div>
@@ -128,12 +128,12 @@ const BookSection = ({ title, status, actions = [] }) => {
                                                             handleAction(
                                                                 book._id,
                                                                 action,
-                                                            )
+                                                             )
                                                         }
                                                         disabled={
                                                             processing !== null
                                                         }
-                                                        className={`px-4 py-2 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider transition-all duration-150 active:scale-[0.97]
+                                                        className={`px-4 py-2 rounded-lg text-[10px] sm:text-xs font-semibold uppercase tracking-wider transition-all duration-150 active:scale-[0.97]
                                                                    disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer ${action.className}`}>
                                                         {isBusy
                                                             ? action.busyLabel
@@ -158,7 +158,7 @@ const BookSection = ({ title, status, actions = [] }) => {
                         )}
                     </div>
                 ) : (
-                    <p className="text-textSecondary text-sm italic py-4">No books to show in this drawer.</p>
+                    <p className="text-on-surface-variant text-sm italic py-4">No books to show in this drawer.</p>
                 )}
             </div>
         </div>

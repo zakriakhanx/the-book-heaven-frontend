@@ -19,9 +19,9 @@ const StarRating = ({ rating }) => {
             {[...Array(totalStars)].map((_, index) => {
                 const starNumber = index + 1;
                 return starNumber <= rating ? (
-                    <SolidStar key={index} className="w-3.5 h-3.5 fill-amber-500" />
+                    <SolidStar key={index} className="w-3.5 h-3.5 fill-[#d97706]" />
                 ) : (
-                    <OutlineStar key={index} className="w-3.5 h-3.5 text-zinc-600" />
+                    <OutlineStar key={index} className="w-3.5 h-3.5 text-outline-variant" />
                 );
             })}
         </div>

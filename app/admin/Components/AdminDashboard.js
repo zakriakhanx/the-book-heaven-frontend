@@ -7,14 +7,14 @@ const approveAction = {
     action: "approve",
     label: "Approve",
     busyLabel: "Approving...",
-    className: "bg-emerald-700 hover:bg-emerald-600 text-white shadow-md shadow-emerald-950/10",
+    className: "bg-[#2d5c50] hover:bg-[#23493f] text-white shadow-2xs",
 };
 
 const denyAction = {
     action: "deny",
     label: "Deny",
     busyLabel: "Denying...",
-    className: "bg-red-950/20 text-red-400 border border-red-900/30 hover:bg-red-900/40 hover:text-red-300",
+    className: "bg-error-container/25 text-error border border-error/30 hover:bg-error-container/45",
 };
 
 const AdminDashboard = () => {

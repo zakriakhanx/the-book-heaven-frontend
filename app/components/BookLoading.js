@@ -22,22 +22,21 @@ const BookLoading = ({ size = "md", isLoading = true }) => {
                     {[...Array(5)].map((_, i) => (
                         <div
                             key={i}
-                            className="relative aspect-[3/4.2] w-full rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-5 
-                                       overflow-hidden flex flex-col justify-between animate-pulse">
-                            {/* Inner border mock */}
-                            <div className="absolute inset-[10px] border border-white/5 opacity-30 rounded pointer-events-none" />
-                            
-                            {/* Spine mock shadow */}
-                            <div className="absolute left-0 top-0 w-3 h-full bg-gradient-to-r from-black/40 via-black/10 to-transparent rounded-l-xl" />
-                            
-                            {/* Title lines mock */}
-                            <div className="w-full mt-4 flex flex-col items-center gap-2">
-                                <div className="h-3.5 bg-zinc-800/80 rounded-md w-4/5" />
-                                <div className="h-3.5 bg-zinc-800/80 rounded-md w-3/5" />
-                            </div>
+                            className="relative aspect-[3/4.4] w-full rounded-xl border border-outline-variant/60 bg-surface-container-lowest p-3 sm:p-3.5 
+                                       overflow-hidden flex flex-col justify-between animate-pulse shadow-xs">
+                            <div className="w-full h-full rounded-[4px] bg-surface-container flex flex-col justify-between p-4">
+                                {/* Spine mock shadow */}
+                                <div className="absolute left-3 top-3 w-3 bottom-3 bg-gradient-to-r from-black/10 to-transparent rounded-l-[4px]" />
+                                
+                                {/* Title lines mock */}
+                                <div className="w-full mt-4 flex flex-col items-center gap-2">
+                                    <div className="h-3 bg-surface-container-highest rounded w-4/5" />
+                                    <div className="h-3 bg-surface-container-highest rounded w-3/5" />
+                                </div>
 
-                            {/* Genre line mock */}
-                            <div className="w-2/3 mx-auto h-2 bg-zinc-800/50 rounded-md mt-auto mb-2" />
+                                {/* Genre line mock */}
+                                <div className="w-1/2 mx-auto h-2 bg-surface-container-high rounded mt-auto mb-2" />
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -64,24 +63,24 @@ const BookLoading = ({ size = "md", isLoading = true }) => {
             <div className={`relative ${dimensionClasses[size]} perspective-500`}>
                 <div className="book-shell w-full h-full flex justify-between relative">
                     {/* Left cover page static */}
-                    <div className="w-[48%] h-full bg-gradient-to-l from-zinc-850 to-zinc-900 border-l border-y border-zinc-800 rounded-l shadow-md" />
+                    <div className="w-[48%] h-full bg-gradient-to-l from-surface-container-high to-surface-container border-l border-y border-outline-variant rounded-l shadow-xs" />
                     
                     {/* Center book spine */}
                     <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-primary/80 z-20" />
                     
                     {/* Flipping page */}
-                    <div className="flipping-page absolute right-[1%] top-0 w-[49%] h-full bg-zinc-800 border-r border-y border-zinc-700/85 rounded-r origin-left z-10" />
+                    <div className="flipping-page absolute right-[1%] top-0 w-[49%] h-full bg-surface-container-lowest border-r border-y border-outline-variant rounded-r origin-left z-10" />
                     
                     {/* Right cover page static */}
-                    <div className="w-[48%] h-full bg-gradient-to-r from-zinc-850 to-zinc-900 border-r border-y border-zinc-800 rounded-r shadow-md" />
+                    <div className="w-[48%] h-full bg-gradient-to-r from-surface-container-high to-surface-container border-r border-y border-outline-variant rounded-r shadow-xs" />
                 </div>
             </div>
 
             {/* Micro-loading indicators */}
             <div className="flex gap-1.5">
-                <div className={`${dotDimension} bg-primary/70 rounded-full animate-bounce-custom-1`} />
-                <div className={`${dotDimension} bg-primary/70 rounded-full animate-bounce-custom-2`} />
-                <div className={`${dotDimension} bg-primary/70 rounded-full animate-bounce-custom-3`} />
+                <div className={`${dotDimension} bg-primary/70 rounded-full animate-bounce-custom-1` } />
+                <div className={`${dotDimension} bg-primary/70 rounded-full animate-bounce-custom-2` } />
+                <div className={`${dotDimension} bg-primary/70 rounded-full animate-bounce-custom-3` } />
             </div>
 
             <style jsx global>{`
@@ -96,15 +95,15 @@ const BookLoading = ({ size = "md", isLoading = true }) => {
                 @keyframes flipPage {
                     0% {
                         transform: rotateY(0deg);
-                        background-color: #27272a;
+                        background-color: #f5f3ef;
                     }
                     50% {
                         transform: rotateY(-180deg);
-                        background-color: #3f3f46;
+                        background-color: #efeeea;
                     }
                     100% {
                         transform: rotateY(-360deg);
-                        background-color: #27272a;
+                        background-color: #f5f3ef;
                     }
                 }
 

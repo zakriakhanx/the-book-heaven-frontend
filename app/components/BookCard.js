@@ -16,17 +16,17 @@ const COVER_PALETTES = [
 
 const BookCard = ({ id, title, genre, status }) => {
     // Generate a consistent palette index based on book ID or Title
-    const paletteIndex = id 
+    const paletteIndex = id
         ? id.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) % COVER_PALETTES.length
         : title.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) % COVER_PALETTES.length;
-    
+
     const palette = COVER_PALETTES[paletteIndex];
 
     return (
         <Link href={`/bookDetailsPage/${id}`} className="block w-full">
-            <motion.div 
-                className="relative aspect-[3/4.4] w-full cursor-pointer group bg-surface-container-lowest p-3 sm:p-3.5 rounded-xl border border-outline-variant/60 shadow-[0_4px_16px_-4px_rgba(27,28,26,0.06)] hover:border-primary/40 hover:shadow-[0_12px_28px_-6px_rgba(27,28,26,0.12)] transition-colors"
-                whileHover={{ 
+            <motion.div
+                className="relative aspect-[3/4.4] w-full cursor-pointer group bg-surface-container-lowest rounded-xl border border-outline-variant/60 shadow-[0_4px_16px_-4px_rgba(27,28,26,0.06)] hover:border-primary/40 hover:shadow-[0_12px_28px_-6px_rgba(27,28,26,0.12)] transition-colors"
+                whileHover={{
                     y: -6,
                     scale: 1.015,
                 }}
@@ -35,11 +35,10 @@ const BookCard = ({ id, title, genre, status }) => {
                 {/* Status Badges */}
                 {status && status !== "allowed" && (
                     <span
-                        className={`absolute top-2 right-2 z-20 px-2 py-0.5 rounded-full text-[9px] font-semibold tracking-wider uppercase backdrop-blur-md shadow-xs ${
-                            status === "pending"
-                                ? "bg-amber-100 text-amber-900 border border-amber-300"
-                                : "bg-red-100 text-red-900 border border-red-300"
-                        }`}>
+                        className={`absolute top-2 right-2 z-20 px-2 py-0.5 rounded-full text-[9px] font-semibold tracking-wider uppercase backdrop-blur-md shadow-xs ${status === "pending"
+                            ? "bg-amber-100 text-amber-900 border border-amber-300"
+                            : "bg-red-100 text-red-900 border border-red-300"
+                            }`}>
                         {status === "pending" ? "Pending" : status}
                     </span>
                 )}

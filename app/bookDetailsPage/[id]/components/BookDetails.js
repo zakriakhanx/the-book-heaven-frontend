@@ -157,7 +157,7 @@ export const BookDetails = ({ params }) => {
     };
 
     // Dynamic palette calculation
-    const paletteIndex = book._id 
+    const paletteIndex = book._id
         ? book._id.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) % COVER_PALETTES.length
         : book.title.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) % COVER_PALETTES.length;
     const palette = COVER_PALETTES[paletteIndex];
@@ -166,13 +166,13 @@ export const BookDetails = ({ params }) => {
         <div className="w-full flex flex-col md:flex-row gap-8 md:gap-12 text-on-surface">
             {/* Left Column: Physical Mock Cover Container */}
             <div className="w-full md:w-72 flex shrink-0 justify-center md:justify-start">
-                <div className="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/70 shadow-[0_8px_24px_-6px_rgba(27,28,26,0.08)] w-full max-w-[280px]">
+                <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/70 shadow-[0_8px_24px_-6px_rgba(27,28,26,0.08)] w-full max-w-[280px]">
                     <div className={`relative aspect-[3/4.4] w-full rounded-[4px] border ${palette.border} bg-gradient-to-br ${palette.from} ${palette.to} shadow-md p-6 overflow-hidden flex flex-col justify-between`}>
                         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'6\' height=\'6\' viewBox=\'0 0 6 6\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M5 0h1L0 6V5zM6 5v1H5z\'/%3E%3C/g%3E%3C/svg%3E')] pointer-events-none" />
                         <div className="absolute left-0 top-0 w-3.5 h-full bg-gradient-to-r from-black/40 via-black/15 to-transparent rounded-l-[4px]" />
                         <div className="absolute left-[3px] top-[4%] bottom-[4%] w-[1px] bg-white/15" />
                         <div className="absolute inset-[10px] border border-white/10 opacity-70 rounded-[2px] pointer-events-none" />
-                        
+
                         <div className="w-full mt-4 text-center">
                             <h3 className={`font-serif ${palette.titleColor} text-base sm:text-lg font-bold leading-relaxed line-clamp-5 px-1 select-none`}>
                                 {book.title}
@@ -192,9 +192,8 @@ export const BookDetails = ({ params }) => {
                         {book.genre}
                     </span>
                     {book.status && book.status !== "allowed" && (
-                        <span className={`px-3 py-1 text-[11px] font-mono font-semibold tracking-wider uppercase rounded-full ${
-                            book.status === "pending" ? "bg-amber-100 border border-amber-300 text-amber-900" : "bg-red-100 border border-red-300 text-red-900"
-                        }`}>
+                        <span className={`px-3 py-1 text-[11px] font-mono font-semibold tracking-wider uppercase rounded-full ${book.status === "pending" ? "bg-amber-100 border border-amber-300 text-amber-900" : "bg-red-100 border border-red-300 text-red-900"
+                            }`}>
                             {book.status}
                         </span>
                     )}
@@ -240,11 +239,10 @@ export const BookDetails = ({ params }) => {
                     {isAuthenticated && (
                         <button
                             onClick={handleToggleFavorite}
-                            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold transition-all duration-150 active:scale-[0.98] text-sm cursor-pointer shadow-xs ${
-                                isFavorite 
-                                    ? "bg-primary hover:bg-[#8e330e] text-white" 
+                            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold transition-all duration-150 active:scale-[0.98] text-sm cursor-pointer shadow-xs ${isFavorite
+                                    ? "bg-primary hover:bg-[#8e330e] text-white"
                                     : "bg-surface-container-lowest text-secondary border border-outline hover:bg-surface-container"
-                            } ${loading ? "cursor-wait opacity-50" : ""}`}
+                                } ${loading ? "cursor-wait opacity-50" : ""}`}
                             aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
                             aria-pressed={isFavorite}>
                             <HeartIcon className={`w-4 h-4 ${isFavorite ? "fill-white" : "fill-secondary/60"}`} />

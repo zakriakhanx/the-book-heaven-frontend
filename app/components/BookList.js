@@ -45,36 +45,14 @@ const BookList = () => {
 
                 {/* Center Hero Content */}
                 <div className="relative z-10 max-w-2xl px-6 mx-auto text-center flex flex-col items-center">
-                    <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-surface-container border border-outline-variant/60 shadow-2xs">
-                        <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                        </svg>
-                        <span className="text-xs font-mono font-semibold tracking-widest text-secondary uppercase">
-                            All about literature
-                        </span>
-                    </div>
 
                     <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-secondary leading-[1.14] mb-6 max-w-xl">
                         Discover Your Next Great Read & Share with the World
                     </h1>
-                    
+
                     <p className="text-base sm:text-lg text-on-surface-variant max-w-lg mx-auto leading-relaxed mb-8">
                         A scholarly yet accessible sanctuary for readers. Explore handpicked recommendations, share your favorite books, and keep abreast of community reviews.
                     </p>
-
-                    {/* Stats & Highlights Banner */}
-                    <div className="flex items-center justify-center gap-8 py-3.5 px-8 border-y border-outline-variant/60 mb-8 bg-surface-container-lowest/60 backdrop-blur-xs rounded-xl">
-                        <div className="text-center">
-                            <span className="font-serif text-2xl font-bold text-secondary">{booksData ? booksData.length : "—"}</span>
-                            <span className="block text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-tertiary mt-0.5">Recommendations</span>
-                        </div>
-                        <div className="h-7 w-[1px] bg-outline-variant/60" />
-                        <div className="text-center">
-                            <span className="font-serif text-2xl font-bold text-secondary">100%</span>
-                            <span className="block text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-tertiary mt-0.5">Community Curated</span>
-                        </div>
-                    </div>
 
                     {isAuthenticated ? (
                         <BookForm />

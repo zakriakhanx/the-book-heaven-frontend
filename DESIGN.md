@@ -45,7 +45,7 @@ colors:
   tertiary-fixed-dim: '#abcae8'
   on-tertiary-fixed: '#001d31'
   on-tertiary-fixed-variant: '#2b4963'
-  background: '#fbf9f5'
+  background: '#fbf8f2'
   on-background: '#1b1c1a'
   surface-variant: '#e4e2de'
 typography:

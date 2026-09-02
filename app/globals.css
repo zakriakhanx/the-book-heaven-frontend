@@ -55,7 +55,7 @@
   /* Boundaries & Outlines */
   --color-outline: #8b7169;
   --color-outline-variant: #dec0b6;
-  --color-background: #fbf9f5;
+  --color-background: #fbf8f2;
   --color-on-background: #1b1c1a;
   --color-border: #dec0b6;
 
@@ -106,11 +106,6 @@ body {
   width: 100%;
   overflow-x: hidden;
   position: relative;
-  background-image:
-    radial-gradient(circle at 12% 15%, rgba(255, 127, 80, 0.035) 0%, transparent 45%),
-    radial-gradient(circle at 88% 75%, rgba(62, 92, 118, 0.035) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(234, 232, 228, 0.4) 0%, transparent 100%);
-  background-attachment: fixed;
 }
 
 /* Typography Classes */
